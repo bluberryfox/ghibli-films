@@ -70,8 +70,13 @@ class _MyHomePageState extends State<HomePage> {
       return ListView.builder(
           itemCount: _films.length,
           itemBuilder: (BuildContext context, i) {
-            var name = _films[i].title;
-            return ListTile(title: Text(name));
+            return ListTile(
+                leading: Image(
+                  image:AssetImage('assets/' + _films[i].title.toLowerCase().replaceAll(' ', '_').replaceAll('\'', '') + '.jpg'),
+                ),
+                title: Text(_films[i].title),
+              subtitle: Text(_films[i].release_date),
+            );
           });
     }
   }
